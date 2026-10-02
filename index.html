@@ -1,24 +1,1236 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>skammerz.github.io</title>
-    </head>
-    <body>
-        <h1>Hello World</h1>
-        <p>I'm hosted with GitHub Pages.</p>
-    </body>
-    <div class="timeline">
-        <div class="container left">
-          <div class="content">
-            <h2>2017</h2>
-            <p>Lorem ipsum..</p>
-          </div>
-        </div>
-        <div class="container right">
-          <div class="content">
-            <h2>2016</h2>
-            <p>Lorem ipsum..</p>
-          </div>
-        </div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Sean Kammerzell | Computer Science Portfolio</title>
+
+  <meta
+    name="description"
+    content="Sean Kammerzell - Computer Science Engineering student at the University of Michigan. Projects in machine learning, web development, databases, and data analysis."
+  />
+
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --bg-light: #111827;
+      --card: #151c2c;
+      --card-hover: #1b2436;
+      --text: #f3f4f6;
+      --muted: #a7b0c0;
+      --accent: #5da9ff;
+      --accent-light: #91c5ff;
+      --border: #263247;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(circle at top left, rgba(60, 110, 180, 0.15), transparent 35%),
+        var(--bg);
+
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: rgba(11, 15, 25, 0.88);
+      backdrop-filter: blur(14px);
+
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-content {
+      min-height: 72px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      gap: 24px;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: -0.03em;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-light);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 88vh;
+
+      display: flex;
+      align-items: center;
+
+      padding: 100px 0 80px;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+
+      margin-bottom: 28px;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      max-width: 760px;
+
+      color: var(--muted);
+
+      margin-bottom: 36px;
+    }
+
+    .highlight {
+      color: var(--text);
+      font-weight: 650;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 13px 20px;
+
+      border-radius: 10px;
+      border: 1px solid var(--border);
+
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .button-primary {
+      background: var(--accent);
+      color: #08111f;
+      border-color: var(--accent);
+    }
+
+    .button-primary:hover {
+      transform: translateY(-2px);
+      background: var(--accent-light);
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .button-secondary:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      color: var(--accent-light);
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      margin-bottom: 44px;
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 700px;
+      margin-top: 12px;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .about-text {
+      font-size: 1.07rem;
+      color: var(--muted);
+    }
+
+    .about-text p + p {
+      margin-top: 20px;
+    }
+
+    .info-card {
+      padding: 28px;
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .info-item + .info-item {
+      margin-top: 20px;
+    }
+
+    .info-label {
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .info-value {
+      margin-top: 3px;
+      font-weight: 650;
+    }
+
+    /* SKILLS */
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card {
+      padding: 25px;
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+      border-radius: 15px;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 14px;
+      font-size: 1.05rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .tag {
+      padding: 7px 11px;
+
+      background: rgba(93, 169, 255, 0.09);
+
+      color: var(--accent-light);
+
+      border: 1px solid rgba(93, 169, 255, 0.18);
+      border-radius: 999px;
+
+      font-size: 0.87rem;
+      font-weight: 650;
+    }
+
+    /* PROJECTS */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+
+      min-height: 320px;
+      padding: 28px;
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+      border-radius: 16px;
+
+      transition: 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      background: var(--card-hover);
+      border-color: #37557e;
+    }
+
+    .project-number {
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 800;
+
+      margin-bottom: 24px;
+    }
+
+    .project-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .project-tech {
+      margin-top: auto;
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+
+      color: var(--accent-light);
+      font-size: 0.84rem;
+      font-weight: 650;
+    }
+
+    /* EXPERIENCE */
+
+    .timeline {
+      display: grid;
+      gap: 20px;
+    }
+
+    .experience-card {
+      padding: 28px;
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .experience-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: start;
+
+      margin-bottom: 14px;
+    }
+
+    .experience-title {
+      font-size: 1.22rem;
+      font-weight: 800;
+    }
+
+    .experience-company {
+      color: var(--accent-light);
+      font-weight: 650;
+    }
+
+    .experience-date {
+      color: var(--muted);
+      white-space: nowrap;
+      font-size: 0.92rem;
+    }
+
+    .experience-card ul {
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .experience-card li + li {
+      margin-top: 8px;
+    }
+
+    /* RESUME */
+
+    .resume-box {
+      padding: 48px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(93, 169, 255, 0.12),
+          rgba(93, 169, 255, 0.02)
+        );
+
+      border: 1px solid rgba(93, 169, 255, 0.25);
+      border-radius: 20px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      gap: 28px;
+    }
+
+    .resume-box h2 {
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      letter-spacing: -0.04em;
+
+      margin-bottom: 9px;
+    }
+
+    .resume-box p {
+      color: var(--muted);
+      max-width: 590px;
+    }
+
+    .resume-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* CONTACT */
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .contact-card {
+      min-width: 200px;
+      padding: 18px;
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+      border-radius: 12px;
+
+      transition: 0.2s ease;
+    }
+
+    .contact-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .contact-label {
+      font-size: 0.77rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .contact-value {
+      margin-top: 4px;
+      font-weight: 650;
+    }
+
+    /* FOOTER */
+
+    footer {
+      margin-top: 40px;
+      padding: 35px 0;
+
+      border-top: 1px solid var(--border);
+
+      color: var(--muted);
+      font-size: 0.9rem;
+
+      text-align: center;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+
+      .about-grid,
+      .skill-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .resume-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .experience-top {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 120px 0 80px;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="container nav-content">
+      <a href="#top" class="logo">
+        Sean<span>.</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#resume">Resume</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="container hero-content">
+
+      <div class="eyebrow">
+        Computer Science Engineering
       </div>
+
+      <h1>
+        Sean<br />
+        Kammerzell
+      </h1>
+
+      <p class="hero-subtitle">
+        I'm a
+        <span class="highlight">
+          Computer Science Engineering student at the University of Michigan
+        </span>
+        interested in software engineering, machine learning, data analysis,
+        databases, and building useful applications.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a
+          class="button button-primary"
+          href="Sean_Kammerzell_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Resume
+        </a>
+
+        <a
+          class="button button-secondary"
+          href="Sean_Kammerzell_Resume.pdf"
+          download
+        >
+          Download Resume
+        </a>
+
+        <a
+          class="button button-secondary"
+          href="https://github.com/skammerz"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+
+      </div>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+
+        <div class="section-header">
+          <div class="section-label">About</div>
+          <h2 class="section-title">A little about me.</h2>
+        </div>
+
+        <div class="about-grid">
+
+          <div class="about-text">
+
+            <p>
+              I'm pursuing a B.S.E. in Computer Science Engineering at the
+              University of Michigan with a minor in Statistics.
+            </p>
+
+            <p>
+              I enjoy building projects that combine programming with real-world
+              data, whether that means developing full-stack web applications,
+              creating machine-learning models, automating data collection, or
+              visualizing sports data.
+            </p>
+
+            <p>
+              My experience has given me exposure to software development,
+              relational databases, data structures and algorithms, machine
+              learning, data cleaning, web scraping, and statistical analysis.
+            </p>
+
+          </div>
+
+          <div class="info-card">
+
+            <div class="info-item">
+              <div class="info-label">University</div>
+              <div class="info-value">
+                University of Michigan – Ann Arbor
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-label">Degree</div>
+              <div class="info-value">
+                B.S.E. Computer Science Engineering
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-label">Minor</div>
+              <div class="info-value">
+                Statistics
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-label">Expected Graduation</div>
+              <div class="info-value">
+                May 2028
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+
+        <div class="section-header">
+
+          <div class="section-label">
+            Skills
+          </div>
+
+          <h2 class="section-title">
+            Technologies I work with.
+          </h2>
+
+        </div>
+
+
+        <div class="skill-grid">
+
+          <div class="skill-card">
+
+            <h3>Programming Languages</h3>
+
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Java</span>
+              <span class="tag">C++</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">R</span>
+              <span class="tag">SQL</span>
+            </div>
+
+          </div>
+
+
+          <div class="skill-card">
+
+            <h3>Frameworks & Libraries</h3>
+
+            <div class="tags">
+              <span class="tag">React</span>
+              <span class="tag">scikit-learn</span>
+              <span class="tag">pandas</span>
+              <span class="tag">NumPy</span>
+            </div>
+
+          </div>
+
+
+          <div class="skill-card">
+
+            <h3>Databases & Platforms</h3>
+
+            <div class="tags">
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Supabase</span>
+              <span class="tag">Vercel</span>
+              <span class="tag">GitHub</span>
+            </div>
+
+          </div>
+
+
+          <div class="skill-card">
+
+            <h3>Tools & Concepts</h3>
+
+            <div class="tags">
+              <span class="tag">Linux / Unix</span>
+              <span class="tag">Git</span>
+              <span class="tag">Command Line</span>
+              <span class="tag">LaTeX</span>
+              <span class="tag">Data Structures</span>
+              <span class="tag">Algorithms</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Web Scraping</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+
+        <div class="section-header">
+
+          <div class="section-label">
+            Projects
+          </div>
+
+          <h2 class="section-title">
+            Things I've built.
+          </h2>
+
+          <p class="section-description">
+            A selection of projects spanning full-stack development,
+            machine learning, simulation, and sports analytics.
+          </p>
+
+        </div>
+
+
+        <div class="projects-grid">
+
+          <!-- TASK MANAGER -->
+
+          <article class="project-card">
+
+            <div class="project-number">
+              01
+            </div>
+
+            <h3>
+              Task Manager Web Application
+            </h3>
+
+            <p>
+              A full-stack Kanban-style task management application with
+              task creation, editing, searching, priority filtering, due dates,
+              drag-and-drop status updates, user authentication, activity
+              history, and task summaries.
+            </p>
+
+            <div class="project-tech">
+              <span>React</span>
+              <span>•</span>
+              <span>TypeScript</span>
+              <span>•</span>
+              <span>Supabase</span>
+              <span>•</span>
+              <span>PostgreSQL</span>
+            </div>
+
+          </article>
+
+
+          <!-- NFL WIN PREDICTOR -->
+
+          <article class="project-card">
+
+            <div class="project-number">
+              02
+            </div>
+
+            <h3>
+              NFL Win Predictor
+            </h3>
+
+            <p>
+              A machine-learning model that predicts NFL home-team wins using
+              rolling team performance statistics and Elo ratings. Historical
+              nflverse datasets are cleaned and transformed into model features,
+              then evaluated using held-out game data.
+            </p>
+
+            <div class="project-tech">
+              <span>Python</span>
+              <span>•</span>
+              <span>scikit-learn</span>
+              <span>•</span>
+              <span>pandas</span>
+              <span>•</span>
+              <span>Machine Learning</span>
+            </div>
+
+          </article>
+
+
+          <!-- PROJECTILE -->
+
+          <article class="project-card">
+
+            <div class="project-number">
+              03
+            </div>
+
+            <h3>
+              Projectile Motion Simulator
+            </h3>
+
+            <p>
+              An interactive browser-based physics simulator that uses
+              discrete time-step calculations derived from kinematic equations
+              to animate projectile position, velocity, and trajectory.
+            </p>
+
+            <div class="project-tech">
+              <span>JavaScript</span>
+              <span>•</span>
+              <span>HTML Canvas</span>
+              <span>•</span>
+              <span>Physics</span>
+            </div>
+
+          </article>
+
+
+          <!-- FOOTBALL STATS -->
+
+          <article class="project-card">
+
+            <div class="project-number">
+              04
+            </div>
+
+            <h3>
+              Football Player Stats Dashboard
+            </h3>
+
+            <p>
+              A TypeScript application that parses historical NFL player data,
+              calculates derived statistics such as fantasy points and
+              season-level performance summaries, and displays results through
+              interactive tables and charts.
+            </p>
+
+            <div class="project-tech">
+              <span>TypeScript</span>
+              <span>•</span>
+              <span>CSV</span>
+              <span>•</span>
+              <span>Data Visualization</span>
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="container">
+
+        <div class="section-header">
+
+          <div class="section-label">
+            Experience
+          </div>
+
+          <h2 class="section-title">
+            Work experience.
+          </h2>
+
+        </div>
+
+
+        <div class="timeline">
+
+          <!-- EOQ LAB -->
+
+          <article class="experience-card">
+
+            <div class="experience-top">
+
+              <div>
+
+                <div class="experience-title">
+                  Research Assistant
+                </div>
+
+                <div class="experience-company">
+                  EOQ Lab at Ross School of Business
+                </div>
+
+              </div>
+
+              <div class="experience-date">
+                May 2026 – July 2026
+              </div>
+
+            </div>
+
+            <ul>
+
+              <li>
+                Developed Python and Playwright scripts to download education
+                datasets from multiple state Department of Education websites.
+              </li>
+
+              <li>
+                Cleaned, validated, and reorganized CSV, Excel, ZIP, and other
+                research files.
+              </li>
+
+              <li>
+                Troubleshot inconsistent website structures, file formats,
+                naming conventions, and automated download failures.
+              </li>
+
+            </ul>
+
+          </article>
+
+
+          <!-- BURSLEY -->
+
+          <article class="experience-card">
+
+            <div class="experience-top">
+
+              <div>
+
+                <div class="experience-title">
+                  Dining Hall Staff
+                </div>
+
+                <div class="experience-company">
+                  Bursley Dining Hall
+                </div>
+
+              </div>
+
+              <div class="experience-date">
+                Nov 2025 – May 2026
+              </div>
+
+            </div>
+
+            <ul>
+
+              <li>
+                Worked in a fast-paced dining environment while cleaning,
+                restocking, and maintaining the dishroom and dining area.
+              </li>
+
+            </ul>
+
+          </article>
+
+
+          <!-- JEWEL -->
+
+          <article class="experience-card">
+
+            <div class="experience-top">
+
+              <div>
+
+                <div class="experience-title">
+                  Grocery Stocker
+                </div>
+
+                <div class="experience-company">
+                  Jewel-Osco
+                </div>
+
+              </div>
+
+              <div class="experience-date">
+                Jan 2022 – Aug 2024
+              </div>
+
+            </div>
+
+            <ul>
+
+              <li>
+                Unpacked deliveries, stocked shelves, and assisted customers
+                with questions and product issues.
+              </li>
+
+            </ul>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- RESUME -->
+    <section id="resume">
+      <div class="container">
+
+        <div class="resume-box">
+
+          <div>
+
+            <div class="section-label">
+              Resume
+            </div>
+
+            <h2>
+              Want the full version?
+            </h2>
+
+            <p>
+              View my resume directly in your browser or download a copy.
+            </p>
+
+          </div>
+
+
+          <div class="resume-actions">
+
+            <a
+              class="button button-primary"
+              href="Sean_Kammerzell_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Resume
+            </a>
+
+            <a
+              class="button button-secondary"
+              href="Sean_Kammerzell_Resume.pdf"
+              download="Sean_Kammerzell_Resume.pdf"
+            >
+              Download PDF
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+
+        <div class="section-header">
+
+          <div class="section-label">
+            Contact
+          </div>
+
+          <h2 class="section-title">
+            Let's connect.
+          </h2>
+
+        </div>
+
+
+        <div class="contact-links">
+
+          <a
+            class="contact-card"
+            href="mailto:seankammerzell@gmail.com"
+          >
+
+            <div class="contact-label">
+              Email
+            </div>
+
+            <div class="contact-value">
+              seankammerzell@gmail.com
+            </div>
+
+          </a>
+
+
+          <a
+            class="contact-card"
+            href="https://linkedin.com/in/sean-kammerzell/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <div class="contact-label">
+              LinkedIn
+            </div>
+
+            <div class="contact-value">
+              Sean Kammerzell
+            </div>
+
+          </a>
+
+
+          <a
+            class="contact-card"
+            href="https://github.com/skammerz"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <div class="contact-label">
+              GitHub
+            </div>
+
+            <div class="contact-value">
+              @skammerz
+            </div>
+
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <div class="container">
+
+      © <span id="year"></span> Sean Kammerzell.
+      Built with HTML & CSS.
+
+    </div>
+
+  </footer>
+
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
 </html>
